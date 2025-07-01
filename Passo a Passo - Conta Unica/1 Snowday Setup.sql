@@ -1,6 +1,6 @@
 
 
-USE ROLE sysadmin;
+USE ROLE ACCOUNTADMIN;
 
 -- assign Query Tag to Session 
 ALTER SESSION SET query_tag = '{"origin":"sf_sit-is","name":"tb_zts","version":{"major":1, "minor":1},"attributes":{"is_quickstart":1, "source":"sql", "vignette": "intro"}}';
@@ -72,7 +72,7 @@ CREATE ROLE IF NOT EXISTS tb_dev
     COMMENT = 'developer for tasty bytes';
     
 -- role hierarchy
-GRANT ROLE tb_admin TO ROLE sysadmin;
+GRANT ROLE tb_admin TO ROLE accountadmin;
 GRANT ROLE tb_data_engineer TO ROLE tb_admin;
 GRANT ROLE tb_dev TO ROLE tb_data_engineer;
 
@@ -137,7 +137,7 @@ GRANT APPLY MASKING POLICY ON ACCOUNT TO ROLE tb_admin;
 GRANT APPLY MASKING POLICY ON ACCOUNT TO ROLE tb_data_engineer;
   
 -- raw_pos table build
-USE ROLE sysadmin;
+USE ROLE accountadmin;
 USE WAREHOUSE tb_de_wh;
 
 /*--

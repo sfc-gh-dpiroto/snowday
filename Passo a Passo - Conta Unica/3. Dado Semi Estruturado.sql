@@ -8,7 +8,7 @@ DB_DHIEGO para DB_SEU_NOME;
 
 
 -- first we must set our Role, Warehouse and Database context
-USE ROLE tb_data_engineer;
+USE ROLE ACCOUNTADMIN;
 USE WAREHOUSE tb_de_wh;
 USE DATABASE DB_DHIEGO;
 
