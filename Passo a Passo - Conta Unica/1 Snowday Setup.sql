@@ -171,8 +171,8 @@ type = 'csv';
 
 
 
-
--CREATE OR REPLACE STAGE DB_DHIEGO.public.s3load
+--Vamos trazer dados de um S3 fora do Snowflake
+CREATE OR REPLACE STAGE DB_DHIEGO.public.s3load
 COMMENT = 'Quickstarts S3 Stage Connection'
 url = 's3://sfquickstarts/frostbyte_tastybytes/'
 file_format = DB_DHIEGO.public.csv_ff;
@@ -436,7 +436,7 @@ ALTER WAREHOUSE tb_de_wh SET WAREHOUSE_SIZE = 'XSMALL';
 
 
 
--- /* Vamos trabalhar com escalabilidade na prática */
+/* Vamos trabalhar com escalabilidade na prática 
 
 
 --Quanto tempo demora para importar os dados com um cluster XS?

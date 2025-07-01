@@ -1,4 +1,4 @@
-USE WAREHOUSE compute_wh;
+USE WAREHOUSE WH_DB_SEU_NOME;
 USE ROLE ACCOUNTADMIN;
 
 /*atualizar atualizar atualizar*/
