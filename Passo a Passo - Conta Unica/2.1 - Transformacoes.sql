@@ -1,12 +1,10 @@
 USE WAREHOUSE compute_wh;
 
-
 /*atualizar atualizar atualizar*/
 /*atualizar atualizar atualizar*/
-USE DATABASE SEU_NOME;
+USE DATABASE DB_SEU_NOME;
 /*atualizar atualizar atualizar*/
 /*atualizar atualizar atualizar*/
-
 
 use schema public;
 
