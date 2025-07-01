@@ -35,7 +35,7 @@ CREATE OR REPLACE TABLE raw_pos.truck_dev CLONE raw_pos.truck;
          tabelas nesse esquema.
       **/
 
-USE WAREHOUSE tb_dev_wh;
+USE WAREHOUSE WH_DB_SEU_NOME;
 
 
 -- com nosso Clone Zero Cópia (*Zero Copy Clone*) criado, vamos consultar o que precisaremos combinar para nossa nova coluna Tipo de Caminhão (*Truck Type*)
@@ -231,7 +231,7 @@ select count(*) from raw_pos.order_detail_clone;
 select * from raw_pos.order_detail_clone limit 10;
 
 --alterações no clone
-ALTER WAREHOUSE tb_test_wh SET warehouse_size = 'XXLarge';
+ALTER WAREHOUSE WH_DB_SEU_NOME SET warehouse_size = 'XXLarge';
 update raw_pos.order_detail_clone set unit_price = 0;
 
 --Alterações devidamente aplicadas no clone?
@@ -243,7 +243,7 @@ select unit_price, count(*) from raw_pos.order_detail
 group by all;
 
 --vamos voltar ao poder de processamento original
-ALTER WAREHOUSE tb_test_wh SET warehouse_size = 'XSMALL';
+ALTER WAREHOUSE WH_DB_SEU_NOME SET warehouse_size = 'XSMALL';
 
 
 /*----------------------------------------------------------------------------------

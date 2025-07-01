@@ -6,6 +6,7 @@ DB_DHIEGO para DB_SEU_NOME;
 /*atualizar atualizar atualizar*/
 
 USE ROLE ACCOUNTADMIN;
+USE WAREHOUSE WH_DB_SEU_NOME;
 
 USE DATABASE DB_DHIEGO;
 
