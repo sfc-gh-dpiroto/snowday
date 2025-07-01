@@ -195,6 +195,22 @@ DROP TABLE raw_pos.truck_dev;
 
 
 /*----------------------------------------------------------------------------------
+/* Plano de Execução  */
+----------------------------------------------------------------------------------*/
+
+    SELECT 
+        o.customer_id,
+        CONCAT(clm.first_name, ' ', clm.last_name) AS name,
+        COUNT(DISTINCT o.order_id) AS order_count,
+        SUM(o.price) AS total_sales
+    FROM analytics.orders_v o
+    JOIN analytics.customer_loyalty_metrics_v clm
+        ON o.customer_id = clm.customer_id
+    GROUP BY o.customer_id, name
+    ORDER BY order_count DESC;
+    
+
+/*----------------------------------------------------------------------------------
 /* Vamos testar com mais volume de dados */
 ----------------------------------------------------------------------------------*/
 

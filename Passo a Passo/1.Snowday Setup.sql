@@ -5,6 +5,17 @@ USE ROLE sysadmin;
 -- assign Query Tag to Session 
 ALTER SESSION SET query_tag = '{"origin":"sf_sit-is","name":"tb_zts","version":{"major":1, "minor":1},"attributes":{"is_quickstart":1, "source":"sql", "vignette": "intro"}}';
 
+
+/*
+    Database objetos de desenvolvimento
+*/
+
+CREATE DATABASE IF NOT EXISTS ADMIN;
+CREATE SCHEMA IF NOT EXISTS ADMIN.GIT;
+CREATE SCHEMA IF NOT EXISTS ADMIN.STREAMLIT;
+CREATE SCHEMA IF NOT EXISTS ADMIN.NOTEBOOK;
+CREATE SCHEMA IF NOT EXISTS ADMIN.DBT;
+
 /*--
  • database, schema and warehouse creation
 --*/
@@ -130,9 +141,32 @@ USE WAREHOUSE tb_de_wh;
 CREATE OR REPLACE FILE FORMAT tb_101.public.csv_ff 
 type = 'csv';
 
+
+
+
+
+
+
+
+
+
+
+
+
+/*CHECKPOINT*/
+/*CHECKPOINT*/
+/*CHECKPOINT*/
 /*CHECKPOINT*/
 
-CREATE OR REPLACE STAGE tb_101.public.s3load
+
+
+
+
+
+
+
+
+-CREATE OR REPLACE STAGE tb_101.public.s3load
 COMMENT = 'Quickstarts S3 Stage Connection'
 url = 's3://sfquickstarts/frostbyte_tastybytes/'
 file_format = tb_101.public.csv_ff;
@@ -399,14 +433,19 @@ ALTER WAREHOUSE tb_de_wh SET WAREHOUSE_SIZE = 'XSMALL';
 -- /* Vamos trabalhar com escalabilidade na prática */
 
 
--- COPY INTO tb_101.raw_pos.order_detail
--- FROM @tb_101.public.s3load/raw_pos/order_detail/;
+--Quanto tempo demora para importar os dados com um cluster XS?
+COPY INTO tb_101.raw_pos.order_detail
+FROM @tb_101.public.s3load/raw_pos/order_detail/;
 
--- ALTER WAREHOUSE tb_de_wh SET WAREHOUSE_SIZE = 'XLARGE';
 
--- COPY INTO tb_101.raw_pos.order_detail
--- FROM @tb_101.public.s3load/raw_pos/order_detail/;
+--Vamos aumentar o poder de processamento
+ALTER WAREHOUSE tb_de_wh SET WAREHOUSE_SIZE = 'XLARGE';
 
---ALTER WAREHOUSE tb_de_wh SET WAREHOUSE_SIZE = 'XSMALL';
 
---SELECT COUNT(*) FROM tb_101.raw_pos.order_detail;
+COPY INTO tb_101.raw_pos.order_detail
+FROM @tb_101.public.s3load/raw_pos/order_detail/;
+
+
+ALTER WAREHOUSE tb_de_wh SET WAREHOUSE_SIZE = 'XSMALL';
+
+SELECT COUNT(*) FROM tb_101.raw_pos.order_detail;
