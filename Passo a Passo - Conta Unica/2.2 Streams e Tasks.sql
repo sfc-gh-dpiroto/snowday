@@ -5,6 +5,7 @@ DB_DHIEGO para DB_SEU_NOME;
 /*atualizar atualizar atualizar*/
 /*atualizar atualizar atualizar*/
 
+USE ROLE ACCOUNTADMIN;
 
 USE DATABASE DB_DHIEGO;
 

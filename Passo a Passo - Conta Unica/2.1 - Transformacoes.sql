@@ -1,4 +1,5 @@
 USE WAREHOUSE compute_wh;
+USE ROLE ACCOUNTADMIN;
 
 /*atualizar atualizar atualizar*/
 /*atualizar atualizar atualizar*/
