@@ -1,6 +1,6 @@
 
 
-USE ROLE sysadmin;
+USE ROLE ACCOUNTADMIN;
 
 -- assign Query Tag to Session 
 ALTER SESSION SET query_tag = '{"origin":"sf_sit-is","name":"tb_zts","version":{"major":1, "minor":1},"attributes":{"is_quickstart":1, "source":"sql", "vignette": "intro"}}';
