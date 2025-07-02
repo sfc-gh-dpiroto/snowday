@@ -17,7 +17,7 @@ Tabelas dinamicas são objetos declarativos, que te permitem criar um pipeline i
 */
 
 
-CREATE OR REPLACE DYNAMIC TABLE TabelaRAW
+CREATE OR REPLACE DYNAMIC TABLE RAW_CLIENTES
     LAG = downstream
     WAREHOUSE = COMPUTE_WH
 AS
