@@ -23,7 +23,7 @@ USE ROLE useradmin;
 CREATE OR REPLACE ROLE ANALISTA_JR_DB_SEU_NOME;
 
 
-
+USE ROLE SECURITYADMIN;
 begin
 
     GRANT ALL ON WAREHOUSE WH_DB_SEU_NOME TO ROLE ANALISTA_JR_DB_SEU_NOME
@@ -34,11 +34,11 @@ begin
     GRANT SELECT ON ALL VIEWS IN SCHEMA DB_SEU_NOME.analytics TO ROLE ANALISTA_JR_DB_SEU_NOME
 end;
     SET my_user_var  = CURRENT_USER();
-    GRANT ROLE ANALISTA_JR TO USER identifier($my_user_var);
+    GRANT ROLE ANALISTA_JR_DB_SEU_NOME TO USER identifier($my_user_var);
 
    
 --Vamos explorar dados de fidelidade de clientes
-USE ROLE ANALISTA_JR_DB_SEU_NOME
+USE ROLE ANALISTA_JR_DB_SEU_NOME;
 
 /*atualizar atualizar atualizar*/
 /*atualizar atualizar atualizar*/
@@ -83,7 +83,7 @@ ALTER TABLE raw_customer.customer_loyalty MODIFY COLUMN e_mail SET TAG PUBLIC.DA
 
 
 --Validando Políticas de Mascaramento com perfil Restrito
-USE ROLE ANALISTA_JR_DB_SEU_NOME
+USE ROLE ANALISTA_JR_DB_SEU_NOME;
 
 SELECT
     cl.customer_id,
@@ -143,7 +143,7 @@ CREATE OR REPLACE ROW ACCESS POLICY PUBLIC.customer_city_row_policy
 ALTER TABLE raw_customer.customer_loyalty ADD ROW ACCESS POLICY public.customer_city_row_policy ON (city);
     
 --Testar com diferentes perfis     
-USE ROLE ANALISTA_JR_DB_SEU_NOME
+USE ROLE ANALISTA_JR_DB_SEU_NOME;
 
 SELECT
     cl.customer_id,
