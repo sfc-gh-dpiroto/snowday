@@ -1,7 +1,7 @@
 
 /*atualizar atualizar atualizar*/
 /*atualizar atualizar atualizar*/
-DB_DHIEGO para DB_SEU_NOME;
+DB_SEU_NOME para DB_SEU_NOME;
 /*atualizar atualizar atualizar*/
 /*atualizar atualizar atualizar*/
 
@@ -23,7 +23,7 @@ CREATE OR REPLACE DYNAMIC TABLE TabelaRAW
 AS
 SELECT 
      1 as coluna
-from RAW_CLIENTES
+from PUBLIC.CLIENTES
 ;
 
 
