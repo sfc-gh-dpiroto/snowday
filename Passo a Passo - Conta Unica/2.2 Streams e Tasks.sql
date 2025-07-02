@@ -1,14 +1,14 @@
 
 /*atualizar atualizar atualizar*/
 /*atualizar atualizar atualizar*/
-DB_DHIEGO para DB_SEU_NOME;
+DB_SEU_NOME para DB_SEU_NOME;
 /*atualizar atualizar atualizar*/
 /*atualizar atualizar atualizar*/
 
 USE ROLE ACCOUNTADMIN;
 USE WAREHOUSE WH_DB_SEU_NOME;
 
-USE DATABASE DB_DHIEGO;
+USE DATABASE DB_SEU_NOME;
 
 CREATE OR REPLACE SCHEMA DAGS;
 USE SCHEMA DAGS;
